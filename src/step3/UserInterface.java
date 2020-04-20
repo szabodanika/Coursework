@@ -16,10 +16,12 @@ public class UserInterface {
 
     public int showMenu() {
         int i = getInt(menuString);
-        if (i > -1 && i < 8) {
+        if (!(i < 0 || i > 8)) {
+            return i;
+        } else {
             System.out.println("Invalid option. Please enter value between 0 and 8");
             return showMenu();
-        } else return i;
+        }
     }
 
     public String getString(String prompt) {
