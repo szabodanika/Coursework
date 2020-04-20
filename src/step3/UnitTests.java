@@ -39,6 +39,14 @@ public class UnitTests {
         assertEquals(true, testCompany.findByTitle(testProject1.getTitle()));
         assertEquals(true, testCompany.findByTitle(testProject2.getTitle()));
         assertEquals(true, testCompany.findByTitle(testProject3.getTitle()));
+
+        assertEquals(3, testCompany.getProjectsNumber());
+
+        testCompany.addProject(testProject1);
+        testCompany.addProject(testProject2);
+        testCompany.addProject(testProject3);
+
+        assertEquals(3, testCompany.getProjectsNumber());
     }
 
     @Test
@@ -54,10 +62,13 @@ public class UnitTests {
 
         testCompany.removeProject(testProject1);
         assertEquals(false, testCompany.findByTitle(testProject1.getTitle()));
+        assertEquals(2, testCompany.getProjectsNumber());
         testCompany.removeProject(testProject2);
         assertEquals(false, testCompany.findByTitle(testProject1.getTitle()));
+        assertEquals(1, testCompany.getProjectsNumber());
         testCompany.removeProject(testProject3);
         assertEquals(false, testCompany.findByTitle(testProject1.getTitle()));
+        assertEquals(0, testCompany.getProjectsNumber());
     }
 
     @Test
@@ -91,6 +102,8 @@ public class UnitTests {
         assertEquals(true, testProject1.findTeamMember(testTeamMember1));
         assertEquals(true, testProject1.findTeamMember(testTeamMember2));
         assertEquals(true, testProject1.findTeamMember(testTeamMember3));
+
+        assertEquals(3, testProject1.getTeamMembersNumber());
     }
 
     @Test
@@ -103,6 +116,8 @@ public class UnitTests {
         assertEquals(true, testProject1.findTeamMember(testTeamMember2));
         assertEquals(true, testProject1.findTeamMember(testTeamMember3));
 
+        assertEquals(3, testProject1.getTeamMembersNumber());
+
         testProject1.removeTeamMemberByName(testTeamMember1.getName());
         testProject1.removeTeamMemberByName(testTeamMember2.getName());
         testProject1.removeTeamMemberByName(testTeamMember3.getName());
@@ -110,6 +125,8 @@ public class UnitTests {
         assertEquals(false, testProject1.findTeamMember(testTeamMember1));
         assertEquals(false, testProject1.findTeamMember(testTeamMember2));
         assertEquals(false, testProject1.findTeamMember(testTeamMember3));
+
+        assertEquals(0, testProject1.getTeamMembersNumber());
     }
 
     @Test
@@ -121,6 +138,12 @@ public class UnitTests {
         assertEquals(testTeamMember1, testProject1.getTeamMemberByName(testTeamMember1.getName()));
         assertEquals(testTeamMember2, testProject1.getTeamMemberByName(testTeamMember2.getName()));
         assertEquals(testTeamMember3, testProject1.getTeamMemberByName(testTeamMember3.getName()));
+
+        testProject1.addMember(testTeamMember1);
+        testProject1.addMember(testTeamMember2);
+        testProject1.addMember(testTeamMember3);
+
+        assertEquals(3, testProject1.getTeamMembersNumber());
     }
 
     @Test

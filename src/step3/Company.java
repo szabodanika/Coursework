@@ -42,4 +42,8 @@ public class Company {
     }
 
 
+    public int getProjectsNumber() {
+        if(root == null) return 0;
+        else return root.count();
+    }
 }

@@ -158,4 +158,14 @@ public class BinaryTreeProject implements Comparable<BinaryTreeProject> {
         if (this.right != null) this.right.print();
     }
 
+    public int count() {
+        int i = 1;
+        if(left!=null) i += left.count();
+        if(right!=null) i += right.count();
+        return i;
+    }
+
+    public int getTeamMembersNumber() {
+        return this.teamMembers.size();
+    }
 }
