@@ -23,8 +23,8 @@ public class TeamMemberTest {
 
     private static void showMenu() {
         while (true) {
-            switch (displayMenu("Main Menu", "Add Team Member", "Remove  Team Member",
-                    "Find Team Member", "Display Team Member", "Display All Team Members")) {
+            switch (displayMenu("Main Menu", "Add Team Member", "Find Team Member",
+                    "See Team Member Info", "Remove Team Member", "Display All Team Members")) {
                 case 0:
                     if (getString("Quit? (y/n)").equals("y")) System.exit(0);
                 case 1:
@@ -47,8 +47,8 @@ public class TeamMemberTest {
                     member = project1.getByName(getString("Please enter member's name"));
                     if (member != null) {
                         project1.removeTeamMember(member);
-                        System.out.println("Removed was successfully");
-                    } else System.out.println("step2.Project was not found");
+                        System.out.println("Removed");
+                    } else System.out.println("Project was not found");
                     break;
                 case 5:
                     if (project1.getTeamMembersNumber() == 0) System.out.println("No Members were found");
