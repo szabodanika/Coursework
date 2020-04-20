@@ -17,7 +17,7 @@ public class TeamMemberTest {
         for (int i = 0; i < options.length; i++) {
             s += "\n" + (i + 1) + " " + options[i];
         }
-        int choice = getInt("");
+        int choice = getInt(s);
         return choice;
     }
 
