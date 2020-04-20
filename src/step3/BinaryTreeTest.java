@@ -8,17 +8,6 @@ public class BinaryTreeTest {
     private static UserInterface userInterface = new UserInterface();
 
     public static void main(String[] args) {
-
-        company.addProject(new BinaryTreeProject("Test Project 1", new Date(), new Date()));
-        company.addProject(new BinaryTreeProject("Test Project 2", new Date(), new Date()));
-        company.addProject(new BinaryTreeProject("Test Project 3", new Date(), new Date()));
-
-        company.getProjectByTitle("Test Project 1").addMember(new TeamMember("Team Member 1", 1, "Marketing"));
-        company.getProjectByTitle("Test Project 2").addMember(new TeamMember("Team Member 2", 2, "Marketing"));
-        company.getProjectByTitle("Test Project 2").addMember(new TeamMember("Team Member 3", 3, "Marketing"));
-        company.getProjectByTitle("Test Project 3").addMember(new TeamMember("Team Member 4", 4, "Marketing"));
-        company.getProjectByTitle("Test Project 3").addMember(new TeamMember("Team Member 5", 5, "Marketing"));
-
         showMenu();
     }
 
