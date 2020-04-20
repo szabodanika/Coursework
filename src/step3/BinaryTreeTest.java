@@ -33,10 +33,15 @@ public class BinaryTreeTest {
                         break;
                     }
                     String name = userInterface.getString("Please enter name");
+                    if(temp.getTeamMemberByName(name) != null){
+                        System.out.println("Team member already exists");
+                        break;
+                    }
                     int id = userInterface.getInt("Please enter ID (6digits)", 6);
                     String division = userInterface.getString("Division");
-                    temp.addMember(new TeamMember(name, id, division));
-                    System.out.println(name + " added to " + temp.getTitle());
+                    if(temp.addMember(new TeamMember(name, id, division))){
+                        System.out.println(name + " added to " + temp.getTitle());
+                    }
                     break;
                 case 3:
                     projectTitle = userInterface.getString("Project title");

@@ -77,9 +77,7 @@ public class BinaryTreeProject implements Comparable<BinaryTreeProject> {
     }
 
     public boolean findTeamMember(TeamMember tMember) {
-        for (TeamMember name : teamMembers) {
-            if (tMember == name) return true;
-        }
+        for (TeamMember teamMember : this.teamMembers) if (tMember.getName().toLowerCase().equals(teamMember.getName().toLowerCase())) return true;
         return false;
     }
 

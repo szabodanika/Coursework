@@ -5,7 +5,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class TeamMemberTest {
-    public static Project project1 = new Project("project", new Date(), new Date());
+
+    public static Project project = new Project("project", new Date(), new Date());
 
     public static void main(String[] args) {
         showMenu();
@@ -31,28 +32,33 @@ public class TeamMemberTest {
                     String name = getString("Please enter name of team member");
                     int id = getInt("Please enter a number with 6 digits");
                     String s = getString("Please enter division name");
-                    project1.addTeamMember(new TeamMember(name, id, s));
+                    if(project.findTeamMemberByName(name)){
+                        System.out.println("Team member already exists");
+                        break;
+                    }else if(project.addTeamMember(new TeamMember(name, id, s))){
+                        System.out.println("Team Member added");
+                    }
                     break;
                 case 2:
-                    boolean found = project1.findTeamMemberByName(getString("Please enter member's name"));
+                    boolean found = project.findTeamMemberByName(getString("Please enter member's name"));
                     if (found) System.out.println("Member was found");
                     else System.out.println("Member was not found");
                     break;
                 case 3:
-                    TeamMember member = project1.getByName(getString("Please enter member's name"));
+                    TeamMember member = project.getByName(getString("Please enter member's name"));
                     if (member != null) System.out.println(member.toString());
                     else System.out.println("Member was not found");
                     break;
                 case 4:
-                    member = project1.getByName(getString("Please enter member's name"));
+                    member = project.getByName(getString("Please enter member's name"));
                     if (member != null) {
-                        project1.removeTeamMember(member);
+                        project.removeTeamMember(member);
                         System.out.println("Removed");
                     } else System.out.println("Project was not found");
                     break;
                 case 5:
-                    if (project1.getTeamMembersNumber() == 0) System.out.println("No Members were found");
-                    for (TeamMember members : project1.getAllTeamMembersAsArray()) System.out.println(members.toString());
+                    if (project.getTeamMembersNumber() == 0) System.out.println("No Members were found");
+                    for (TeamMember members : project.getAllTeamMembersAsArray()) System.out.println(members.toString());
                     break;
             }
         }

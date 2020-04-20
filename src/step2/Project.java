@@ -36,7 +36,7 @@ public class Project implements Comparable<Project> {
     }
 
     public boolean hasTeamMember(TeamMember tMember) {
-        for (TeamMember name : this.teamMembers) if (tMember == name) return true;
+        for (TeamMember teamMember : this.teamMembers) if (tMember.getName().toLowerCase().equals(teamMember.getName().toLowerCase())) return true;
         return false;
     }
 
