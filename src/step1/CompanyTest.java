@@ -13,14 +13,14 @@ public class CompanyTest {
 
     private static void showMenu() {
         while (true) {
-            switch (displayMenu("Main Menu", "Add step1.Project", "Remove step1.Project",
-                    "Find step1.Project", "Display step1.Project", "Display All Projects")) {
+            switch (displayMenu("Main Menu", "Add step1.step2.Project", "Remove step1.step2.Project",
+                    "Find step1.step2.Project", "Display step1.step2.Project", "Display All Projects")) {
                 case 0:
                     if (getString("Quit? (y/n)").equals("y")) System.exit(0);
                 case 1:
                     String title = getString("Please enter project title");
                     if (company.hasProject(title)) {
-                        System.out.println("step1.Project already exists by this name");
+                        System.out.println("step1.step2.Project already exists by this name");
                     } else {
                         Date start, end;
                         while (true) {
@@ -31,7 +31,7 @@ public class CompanyTest {
                             } else break;
                         }
                         company.addProject(new Project(title, start, end));
-                        System.out.println("step1.Project added");
+                        System.out.println("step1.step2.Project added");
                     }
                     break;
                 case 2:
@@ -39,17 +39,17 @@ public class CompanyTest {
                     if (p != null) {
                         company.removeProject(p);
                         System.out.println("Removed successfully");
-                    } else System.out.println("step1.Project not found");
+                    } else System.out.println("step1.step2.Project not found");
                     break;
                 case 3:
                     boolean b = company.hasProject(getString("Please enter project title"));
-                    if (b) System.out.println("step1.Project found");
-                    else System.out.println("step1.Project not found");
+                    if (b) System.out.println("step1.step2.Project found");
+                    else System.out.println("step1.step2.Project not found");
                     break;
                 case 4:
                     p = company.getProjectByTitle(getString("Please enter project title"));
                     if (p != null) System.out.println(p.toString());
-                    else System.out.println("step1.Project not found");
+                    else System.out.println("step1.step2.Project not found");
                     break;
                 case 5:
                     if (company.getNumberOfProjects() == 0) System.out.println("No Projects");
